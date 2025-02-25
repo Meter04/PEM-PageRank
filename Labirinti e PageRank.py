@@ -57,6 +57,15 @@ def draw_graph(adjacency_matrix, exit):
     nx.draw(G, pos, with_labels=True, node_color=node_colors, edge_color='gray', node_size=2000, font_size=10)
     plt.show()
 
+def mef(vec):
+    """
+    Trova la posizione del valore minimo di un vettore unidimensionale escludendo il primo elemento.
+    """
+       if len(vec) <= 1:
+        raise ValueError("Il vettore deve contenere almeno due elementi.")
+    min_index = np.argmin(vec[1:]) + 1  # Aggiungiamo 1 per compensare l'indice
+    return min_index
+
 # Esempio di utilizzo
 num_nodi = 10
 adj_matrix = generate_ternary_tree(num_nodi)
@@ -66,4 +75,4 @@ PRk_Vector = pagerank(adj_matrix)
 print(PRk_Vector)
 print("")
 #prendiamo il nodo associato al valore minimo del vettore che ci ritorna il PageRank come uscita del nostro labirinto
-draw_graph (adj_matrix, int(np.argmin(PRk_Vector)))
+draw_graph (adj_matrix, mef(PRk_Vector))
