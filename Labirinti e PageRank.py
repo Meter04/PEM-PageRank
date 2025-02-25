@@ -65,4 +65,5 @@ print("")
 PRk_Vector = pagerank(adj_matrix)
 print(PRk_Vector)
 print("")
+#prendiamo il nodo associato al valore minimo del vettore che ci ritorna il PageRank come uscita del nostro labirinto
 draw_graph (adj_matrix, int(np.argmin(PRk_Vector)))
