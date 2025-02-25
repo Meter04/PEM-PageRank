@@ -12,11 +12,9 @@ def generate_ternary_tree(num_nodes):#prendendo in input il numero di nodi da av
     
     adjacency_matrix = np.zeros((num_nodes, num_nodes), dtype=int)
     
-    for i in range(1, num_nodes-1):  # Iniziamo dal nodo 1 (0 è la radice)
+    for i in range(1, num_nodes):  # Iniziamo dal nodo 1 (0 è la radice)
         parent = random.choice(range(i))  # Scegli un nodo già creato
         adjacency_matrix[parent][i] = 1
-        adjacency_matrix[parent][i+1] = 1
-        i++
     
     return adjacency_matrix+adjacency_matrix.T #la ritorniamo in questo modo così abbiamo che il grafo orientato può essere percorso in entrambe le direzioni
 
